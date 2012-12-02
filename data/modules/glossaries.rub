@@ -1,0 +1,2 @@
+watch $target.glo
+onchange $target.glo "cd `dirname $target` && makeglossaries `basename $target`"
