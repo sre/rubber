@@ -1,0 +1,265 @@
+rubber (1.1+20100306-2) unstable; urgency=medium
+
+  * do not call bibtex with absolute paths, thanks to Benjamin Mako Hill
+    for the patch (Closes: #684228). -> 02_rubber_bibtext_20120807.diff
+  * ... same for makeindex, thanks to Benjamin Mako Hill for patch
+    (Closes: #682892). -> 03_rubber_makeindex_20120808.diff
+
+    The latter causes an FTBFS on package derivations.
+
+ -- Hilmar Preuße <hille42@web.de>  Wed, 08 Aug 2012 14:25:06 +0200
+
+rubber (1.1+20100306-1) unstable; urgency=low
+
+  * New maintainer (Closes: #670755)
+  * New upstream snapshot (Closes: #537322)
+    - patches for #591533 and #364420 are obsolete
+    - has support for nomencl (Closes: #533041)
+    - passes correct file name to makeindex (Closes: #444837)
+      (Thanks to Paul van Tilburg for the patch)
+    - module for ntheorem named correctly this time (Closes: #336184)
+    - rubber does not run in endless loop in case of transparent png
+      images (Closes: #545273)
+  * Install xelatex.py (Closes: #579757)
+  * Fix category of info page (01_fix_category_of_info_page.diff)
+    (Closes: #424946)
+  * Remove /usr/share/rubber/modules/etex.rub for e-TeX support, the
+    etex and the elatex binary do not exist any more. (Closes: #592865)
+
+  * Kill some lintian warnings:
+    - description-synopsis-starts-with-article
+    - binary-arch-rules-but-pkg-is-arch-indep
+    - debian-rules-missing-recommended-target
+    - debhelper-but-no-misc-depends
+  * Remove tetex-bin as alternative dep
+  * Fix upstream URI (Closes: #669299)
+  * Switch to source format 3.0 (quilt)
+  * Update to Standards Version 3.9.3, no changes necessary
+  * Use dh_prep instead of dh_clean -k
+  * compat level 7, leave deletion of -stamp files to dh_clean
+  * Install NEWS file from upstream as /u/s/d/r/changelog.gz
+
+ -- Hilmar Preuße <hille42@web.de>  Mon, 23 Apr 2012 22:38:32 +0200
+
+rubber (1.1-2.4) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Fix the botched previous upload (closes: #597923).  Thanks, Stuart
+    Prescott!
+
+ -- Julien Cristau <jcristau@debian.org>  Fri, 24 Sep 2010 12:10:18 +0200
+
+rubber (1.1-2.3) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Fix annoying DeprecationWarning from python 2.6, use hashlib for md5
+    (closes: #591533).
+
+ -- Julien Cristau <jcristau@debian.org>  Thu, 23 Sep 2010 14:21:53 +0200
+
+rubber (1.1-2.2) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Incorporate Ubuntu changes to remove byte compiled (.pyc) files
+    (Closes: #492731)
+    - debian/control
+      + Add python-support depends
+      + Add XS/XB-Python-Version
+    - debian/rules
+      + add call to dh_pysupport
+      + change install target to delete the pyc before packaging
+  * Update standards version to 3.8.0
+    - Move hompage to its own field in debian/control
+  * Quote filenames in rules/latex/__init__.py to stop crashes on files with
+    spaces in the filename. (Closes: #364420)
+
+ -- Scott Kitterman <scott@kitterman.com>  Thu, 07 Aug 2008 15:07:42 -0400
+
+rubber (1.1-2.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+
+  * Fix RC bug "Rebuilding from source yields a package without a dependency
+    on python" (closes: #425078). Changes needed:
+    + the package has only private modules, so it's not necessary to use
+      python-support or python-central: depend directly on python instead.
+    + remove debian/compat, the call to dh_python in debian/rules, and the
+      XB-Python-Version header from debian/control.
+    + do not build-depend-indep on python-dev, but only on python.
+
+  * Swap the order of the tetex-bin | texlive-latex-base dependency.
+
+ -- Adeodato Simó <dato@net.com.org.es>  Mon, 11 Jun 2007 11:11:43 +0200
+
+rubber (1.1-2) unstable; urgency=low
+
+  * Update for new Python policy.
+  * Update to Standards-Version 3.7.2, no changes needed.
+
+ -- Baruch Even <baruch@debian.org>  Sat,  1 Jul 2006 18:28:51 +0000
+
+rubber (1.1-1) unstable; urgency=low
+
+  * New release.
+  * Various bugfixes (closes: #247316, #328599, #334886, #345953).
+  * Improved log file parser (closes: #329786, #336185).
+  * Improved algorithm for file conversion (closes: #242202, #328995, #345982).
+  * Support for user rules (closes: #324759, #329009).
+  * More control on the application of rules (closes: #328785).
+  * Support for unsorted bibliographies (closes: #215676).
+  * Track changes in the list of BibTeX databases (closes: #343681).
+  * Support for xindy (closes: #344193).
+  * Support for sam2p (closes: #328994).
+  * Improved fig2dev support (closes: #331149, #345954).
+  * Minimal support for ntheorem (closes: #336184).
+  * Simpler meaning for -z command-line option (closes: #239661).
+  * Changed dependencies to support TeXLive (closes: #354555).
+
+ -- Emmanuel Beffara <manu@beffara.org>  Fri, 17 Mar 2006 15:11:12 +0100
+
+rubber (1.0-1) unstable; urgency=low
+
+  * New release.
+  * Various bugfixes (closes: #278453, #317445).
+  * New system for detecting graphics conversion rules (closes: #283448).
+  * Fixed the command line for some external tools (closes: #284530, #316548).
+  * Some new command-line switches (closes: #190554).
+
+ -- Emmanuel Beffara <manu@beffara.org>  Mon, 11 Jul 2005 14:52:35 +0200
+
+rubber (0.99.8-1) unstable; urgency=low
+
+  * New release.
+  * Ignore \includegraphics when the file name contains # or \
+    (closes: #242906).
+  * Added support for combined PDF/LaTeX from XFig (closes: #260850)
+  * Added support for e-TeX and Omega (closes: #265240)
+  * Better check for availablility of external tools
+  	(closes: #247666, hopefully)
+
+ -- Emmanuel Beffara <manu@beffara.org>  Fri, 27 Aug 2004 22:56:38 +0100
+
+rubber (0.99.7-6) unstable; urgency=low
+
+  * Added homepage link to package description
+  * rubber-pipe should send output to stdout and not stderr.
+  * Correct minus signs in man pages. Thanks Lintian!
+  * Add rubber-pipe manpage, it's a link to rubber(1).
+
+ -- Baruch Even <baruch@debian.org>  Mon, 24 May 2004 08:11:40 +0300
+
+rubber (0.99.7-5) unstable; urgency=low
+
+  * Add Baruch Even as co-maintainer.
+  * Remove the Suggest-ion for jpeg2ps, there is no such thing in the archive
+    anymore. (closes: #250044)
+  * Install the upstream changelog with the correct name.
+
+ -- Baruch Even <baruch@debian.org>  Thu, 20 May 2004 21:10:57 +0300                                          
+
+rubber (0.99.7-4) unstable; urgency=low
+
+  * REALLY fix the damn thing, missed a part of the provided fix.
+
+ -- Baruch Even <baruch@debian.org>  Tue,  4 May 2004 08:54:11 +0300
+
+rubber (0.99.7-3) unstable; urgency=low
+
+  * Fixed parameter reference (closes: #246619)
+
+ -- Baruch Even <baruch@debian.org>  Sat,  1 May 2004 10:34:49 +0300
+
+rubber (0.99.7-2) unstable; urgency=low
+
+  * Added texinfo to Build-Depends (closes: #235088).
+
+ -- Baruch Even <baruch@debian.org>  Sun, 29 Feb 2004 21:10:28 +0200
+
+rubber (0.99.7-1) unstable; urgency=low
+
+  * New release.
+  * Support for \graphicspath (closes: #183825).
+  * Support for package natbib (closes: #184316).
+  * Changed parsing rule for \usepackage (closes: #189680).
+  * Included NMU for Python dependencies (closes: #208922).
+  * Made --clean mode verbose (closes: #216101).
+  * Added interface for ImageMagick (closes: #216220).
+  * Change error format to GNU style (closes: #219540).
+  * BibTeX bugfixes (closes: #227575).
+  * Support for pdfTeX in DVI mode (closes: #228675).
+  * Support for package multibib (closes: #229149).
+
+ -- Emmanuel Beffara <manu@beffara.org>  Fri, 21 Feb 2004 15:08:42 +0100
+
+rubber (0.99.6-1.1) unstable; urgency=low
+
+  * NMU.
+  * Fix python dependencies (closes: #207322).
+
+ -- Matthias Klose <doko@debian.org>  Fri,  5 Sep 2003 23:40:39 +0200
+
+rubber (0.99.6-1) unstable; urgency=low
+
+  * New upstream version
+
+ -- Baruch Even <baruch@debian.org>  Mon, 14 Apr 2003 19:08:07 +0300
+
+rubber (0.99.5-1) unstable; urgency=low
+
+  * New release.
+  * User-visible changes are now listed in the NEWS file.
+
+ -- Emmanuel Beffara <manu@beffara.org>  Wed,  4 Dec 2002 07:55:35 +0100
+
+rubber (0.99.4-2) unstable; urgency=low
+
+  * Removed "-terse" from BibTeX calling convention.
+  * Fixed date calculation that caused useless compilations.
+  * Fixed the way Python is searched for in ./configure.
+
+ -- Emmanuel Beffara <manu@beffara.org>  Fri,  8 Nov 2002 23:38:13 +0100
+
+rubber (0.99.4-1) unstable; urgency=low
+
+  * Switched to version 0.99.4, introducing modules for minitoc and
+    gzipped figures. This also fixes some bugs and cleans the code for
+    external program execution, but breaking system independence by using
+    UNIX-specific features.
+
+ -- Emmanuel Beffara <manu@beffara.org>  Wed,  6 Nov 2002 13:45:57 +0100
+
+rubber (0.99.3-2) unstable; urgency=low
+
+  * Fixed package dependencies, both about Python and teTeX.
+
+ -- Emmanuel Beffara <manu@beffara.org>  Thu, 31 Oct 2002 19:44:40 +0100
+
+rubber (0.99.3-1) unstable; urgency=low
+
+  * Switched to version 0.99.3, introducing initial XFig support and some
+    bugfixes and improvements.
+
+ -- Emmanuel Beffara <manu@beffara.org>  Sat, 12 Oct 2002 17:42:45 +0200
+
+rubber (0.99.2-1) unstable; urgency=low
+
+  * Switched to version 0.99.2, introducing the --force option, various
+    bugfixes and small improvements (notably Metapost dependency
+    analysis), and the man pages for rubber-info.
+
+ -- Emmanuel Beffara <manu@beffara.org>  Fri,  6 Sep 2002 11:02:11 +0200
+
+rubber (0.99.1-1) unstable; urgency=low
+
+  * Switched to version 0.99.1. This mainly introduces a better dependency
+    system and the modular graphics support, with a few other
+    improvements.
+
+ -- Emmanuel Beffara <manu@beffara.org>  Fri, 21 Jun 2002 16:05:39 +0200
+
+rubber (0.99-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Emmanuel Beffara <manu@beffara.org>  Fri, 31 May 2002 11:54:47 +0200
+
