@@ -163,7 +163,7 @@ actions:
 		accroding to the argument's value.
 		"""
 		log = self.env.main.log
-		ret = log.read(self.env.main.target + ".log")
+		ret = log.read(self.place + '/' + self.env.main.src_base + ".log")
 		if ret == 1:
 			msg.error(_("The log file is invalid."))
 			return 1
