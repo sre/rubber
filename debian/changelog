@@ -5,6 +5,8 @@ rubber (1.2~20121202-1) UNRELEASED; urgency=low
     - Support LTXtables (Closes: #694836)
     - Support glossaries (Closes: #694839, LP: #860661)
     - Support multiinclude (LP: #975369)
+    - Fix file.close() (LP: #736183)
+    - Support --into in rubber-info (LP: #975376)
   * Switch to debhelper 9
   * Remove patches (applied upstream)
 
