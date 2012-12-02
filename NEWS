@@ -1,3 +1,15 @@
+Version 1.2 (NOT YET RELEASED)
+
+  Features:
+    - Support for glossaries
+	- Support for ltxtables
+	- Support for multiinclude
+	- Convert svg to pdf with inkscape by default
+
+  Bugfixes:
+    - Image Conversion works for more than one image
+	- Many other fixes.
+
 Version 1.1 (2006-03-17)
 
   Features:
