@@ -566,6 +566,9 @@ This modules handles graphics inclusion for the documents that use the old
 style @code{\psfig} macro. It is actually an interface for the graphics
 system, for details see @ref{Graphics}.
 
+@item glossaries
+Process the document's glossary with @command{makeglossaries} when needed.
+
 @item graphics
 @itemx graphicx
 These modules identify the graphics included in the document and consider them
