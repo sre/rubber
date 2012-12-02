@@ -73,7 +73,8 @@ class Modules:
 				file, path, descr = imp.find_module(name,
 						rubber.latex_modules.__path__)
 				pymodule = imp.load_module(name, file, path, descr)
-				file.close()
+				if file:
+					file.close()
 				mod = PyModule(self.env, pymodule, dict)
 				msg.log(_("built-in module %s registered") % name, pkg='latex')
 			except ImportError:
