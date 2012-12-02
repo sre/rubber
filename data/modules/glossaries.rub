@@ -1,2 +1,3 @@
 watch $target.glo
 onchange $target.glo "cd `dirname $target` && makeglossaries `basename $target`"
+clean $target.glg $target.glo $target.gls $target.idx $target.ilg $target.ind $target.ist
