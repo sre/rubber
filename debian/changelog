@@ -1,5 +1,10 @@
 rubber (1.2~20121202-1) UNRELEASED; urgency=low
 
+  * New upstream checkout
+    - Image Conversion Fix (Closes: #684731)
+    - Support LTXtables (Closes: #694836)
+    - Support glossaries (Closes: #694839)
+    - Support multiinclude
   * Switch to debhelper 9
   * Remove patches (applied upstream)
 
