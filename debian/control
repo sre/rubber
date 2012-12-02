@@ -3,16 +3,23 @@ Section: tex
 Priority: optional
 Maintainer: Hilmar Preuße <hille42@web.de>
 Uploaders: Python Apps Team <python-apps-team@lists.alioth.debian.org>
-Build-Depends: debhelper (>= 7)
-Build-Depends-Indep: python, texinfo, python-support (>=0.5.3)
+Build-Depends: debhelper (>= 9)
+Build-Depends-Indep: python,
+                     python-support (>=0.5.3),
+                     texinfo
 XB-Python-Version: all
-Standards-Version: 3.9.3
-Homepage: https://launchpad.net/rubber
+Standards-Version: 3.9.4
+Homepage: https://github.com/sre/rubber
 
 Package: rubber
 Architecture: all
-Depends: ${python:Depends}, ${misc:Depends}, texlive-latex-base
-Suggests: imagemagick, transfig, sam2p
+Depends: ${python:Depends},
+         ${misc:Depends},
+         texlive-latex-base
+Suggests: imagemagick,
+          inkscape,
+          sam2p,
+          transfig
 XB-Python-Version: ${python:Versions}
 Description: automated system for building LaTeX documents
  This is a building system for LaTeX documents. It is based on a routine that

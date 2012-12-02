@@ -1,3 +1,10 @@
+rubber (1.1+20100306-2.1) UNRELEASED; urgency=low
+
+  * Non-maintainer upload.
+  * Switch to debhelper 9
+
+ -- Sebastian Reichel <sre@debian.org>  Sun, 02 Dec 2012 17:30:07 +0100
+
 rubber (1.1+20100306-2) unstable; urgency=medium
 
   * do not call bibtex with absolute paths, thanks to Benjamin Mako Hill
