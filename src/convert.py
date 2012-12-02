@@ -94,7 +94,7 @@ class Rule (Variables):
 		self.cost = dict['cost']
 		self.re_target = re.compile(dict['target'] + '$')
 
-	def copy():
+	def copy(self):
 		return Rule(self.parent, self.dict.copy())
 
 
