@@ -25,7 +25,7 @@ distclean: clean-local
 	cd doc && $(MAKE) distclean
 
 install:
-	@python@ setup.py inst ${prefix}
+	@python@ setup.py inst ${DESTDIR}${prefix}
 
 ###  distribution-related targets
 
