@@ -7,6 +7,7 @@ rubber (1.2~20121202-1) UNRELEASED; urgency=low
     - Support multiinclude (LP: #975369)
     - Fix file.close() (LP: #736183)
     - Support --into in rubber-info (LP: #975376)
+    - Support XeTeX
   * Switch to debhelper 9
   * Remove patches (applied upstream)
 

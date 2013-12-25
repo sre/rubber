@@ -4,6 +4,7 @@ Version 1.2 (NOT YET RELEASED)
     - Support for glossaries
 	- Support for ltxtables
 	- Support for multiinclude
+    - Support for XeTeX
 	- Convert svg to pdf with inkscape by default
 
   Bugfixes:

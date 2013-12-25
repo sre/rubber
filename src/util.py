@@ -210,12 +210,10 @@ def prog_available (prog):
 	Test whether the specified program is available in the current path, and
 	return its actual path if it is found, or None.
 	"""
-	pathsep = ";" if os.name == "nt" else ":"
-	exeext = ".exe" if os.name == "nt" else ""
 	if checked_progs.has_key(prog):
 		return checked_progs[prog]
-	for path in os.getenv("PATH").split(pathsep):
-		file = os.path.join(path, prog) + exeext
+	for path in os.getenv("PATH").split(":"):
+		file = os.path.join(path, prog)
 		if os.path.exists(file):
 			st = os.stat(file)
 			if stat.S_ISREG(st.st_mode) and st.st_mode & 0111:
