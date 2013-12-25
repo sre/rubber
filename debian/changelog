@@ -1,4 +1,4 @@
-rubber (1.2~20121202-1) UNRELEASED; urgency=low
+rubber (1.2~20131225-1) UNRELEASED; urgency=low
 
   * New upstream checkout
     - Image Conversion Fix (Closes: #684731, LP: #816470)
