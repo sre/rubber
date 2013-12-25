@@ -94,10 +94,6 @@ class Rule (Variables):
 		self.cost = dict['cost']
 		self.re_target = re.compile(dict['target'] + '$')
 
-	def copy(self):
-		return Rule(self.parent, self.dict.copy())
-
-
 class Converter (object):
 	"""
 	This class represents a set of translation rules that may be used to
@@ -219,7 +215,7 @@ class Converter (object):
 
 		candidates.sort()
 		for cost, source, target, rule in candidates:
-			instance = Variables(context, rule.copy())
+			instance = Variables(context, dict(rule))
 			instance['source'] = source
 			instance['target'] = target
 			if check is not None and not check(instance):

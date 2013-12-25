@@ -250,11 +250,7 @@ class Bibliography:
 			cmd = ["bibtex"]
 		else:
 			cmd = ["bibtex", "-min-crossrefs=" + self.crossrefs]
-		cmd.append(self.doc.env.file_name(self.base))
-		msg.log(_("executing: %s") % " ".join(cmd), pkg="bibtex")
-		process = Popen(cmd, stdout=PIPE, stderr=PIPE)
-		process.communicate()
-		if process.wait() != 0:
+		if self.doc.env.execute(['bibtex', self.base], doc):
 			msg.info(_("There were errors making the bibliography."))
 			return False
 		self.run_needed = 0
@@ -409,7 +405,7 @@ class Bibliography:
 
 def setup (doc, context):
 	global biblio
-	biblio = Bibliography(doc, basename(doc.target))
+	biblio = Bibliography(doc, doc.target)
 	doc.hook_macro('bibliography', 'a', biblio.hook_bibliography)
 	doc.hook_macro('bibliographystyle', 'a', biblio.hook_bibliographystyle)
 def command (command, args):

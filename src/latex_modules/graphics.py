@@ -84,7 +84,7 @@ def setup (document, context):
 
 # Supported macros
 
-def hook_includegraphics (loc, optional, name, print_warning=True):
+def hook_includegraphics (loc, optional, name):
 	# no suffixes are tried when the extension is explicit
 
 	allowed_suffixes = suffixes
@@ -105,7 +105,7 @@ def hook_includegraphics (loc, optional, name, print_warning=True):
 	# argument, forget about this \includegraphics.
 
 	if name.find('\\') >= 0 or name.find('#') >= 0:
-		return True
+		return
 
 	# We only accept conversions from file types we don't know and cannot
 	# produce.
@@ -129,11 +129,8 @@ def hook_includegraphics (loc, optional, name, print_warning=True):
 		for file in node.products:
 			doc.add_source(file)
 		files.append(node)
-		return True
 	else:
-		if print_warning:
-			msg.warn(_("graphics `%s' not found") % name, **dict(loc))
-		return False
+		msg.warn(_("graphics `%s' not found") % name, **dict(loc))
 
 def hook_graphicspath (loc, arg):
 	# The argument of \graphicspath is a list (in the sense of TeX) of
