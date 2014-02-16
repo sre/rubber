@@ -10,6 +10,7 @@ import os, stat, time
 import imp
 import re, string
 from string import whitespace
+import sys
 
 #-- Message writers --{{{1
 
@@ -212,7 +213,9 @@ def prog_available (prog):
 	"""
 	if checked_progs.has_key(prog):
 		return checked_progs[prog]
-	for path in os.getenv("PATH").split(":"):
+	if sys.platform == 'win32':
+		prog += ".exe"
+	for path in os.getenv("PATH").split(os.pathsep):
 		file = os.path.join(path, prog)
 		if os.path.exists(file):
 			st = os.stat(file)
