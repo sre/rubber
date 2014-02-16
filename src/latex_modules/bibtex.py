@@ -242,10 +242,10 @@ class Bibliography:
 		doc = {}
 		if len(self.bib_path) != 1:
 			doc["BIBINPUTS"] = string.join(self.bib_path +
-				[os.getenv("BIBINPUTS", "")], ":")
+				[os.getenv("BIBINPUTS", "")], os.pathsep)
 		if len(self.bst_path) != 1:
 			doc["BSTINPUTS"] = string.join(self.bst_path +
-				[os.getenv("BSTINPUTS", "")], ":")
+				[os.getenv("BSTINPUTS", "")], os.pathsep)
 		if self.crossrefs is None:
 			cmd = ["bibtex"]
 		else:
