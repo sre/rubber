@@ -1170,12 +1170,12 @@ class LaTeXDep (Node):
 				paths.append("." + p[len(prefix):])
 			else:
 				paths.append(p)
-		inputs = string.join(paths, ":")
+		inputs = string.join(paths, os.pathsep)
 
 		if inputs == "":
 			env = {}
 		else:
-			inputs = inputs + ":" + os.getenv("TEXINPUTS", "")
+			inputs = inputs + os.pathsep + os.getenv("TEXINPUTS", "")
 			env = {"TEXINPUTS": inputs}
 
 		self.env.execute(cmd, env, kpse=1)
